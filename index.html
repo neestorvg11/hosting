@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- ESCENA DE VR -->
+    <a-scene>
+      <!-- Assets para el proyecto -->
+      <a-assets>
+        <a-asset-item id="pistol" src="hand_canon_-_fortnite_low_poly/scene.gltf"></a-asset-item>
+        <img id="wall" src="Texturas/Muro.jpg" />
+        <img id="diana" src="Texturas/Diana.png"/>
+      </a-assets>
+     
+      <!-- Fondo -->
+      <a-sky src="#wall"></a-sky>
+      
+      <!-- Diana con animación de rotación -->
+      <a-entity id="orbit" position="-2 0 -2" rotation="0 0 0" animation="property: rotation; to: 0 0 -360; loop: true; dur: 5000; easing: linear"></a-entity>
+      <a-entity id="orbit" position="0 0.5 -2" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur:5000; easing: linear"></a-entity>
+      <a-entity id="orbit" position="0 0.1 -2" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur:7000; easing: linear"></a-entity>
+      <a-entity id="orbit" position="1 0 -2" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur:5000; easing: linear"></a-entity>
+      <a-entity id="orbit" position="-2 1 -2" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur:5000; easing: linear"></a-entity
+
+      <!-- Cámara con pistola y controles -->
+      <a-text 
+        id="scoreText" 
+        value="¡Golpea a la diana!" 
+        align="center" 
+        position="-1 2 -3" 
+        color="black">
+      </a-text>
+
+      <!-- Cámara con pistola y controles -->
+      <a-entity camera look-controls >
+        <a-entity 
+          gltf-model="#pistol" 
+          position="0 -0.4 -1.2"
+          scale="3 3 3"
+          rotation="0 210 0" 
+          cursor="fuse: true; fuseTimeout: 100">
+        </a-entity>
+          
+        <a-entity cursor="fuse:true; fuseTimeout: 100" 
+          raycaster="objects: .clickable; showLine:true;direction: -0.25 -0.05 -1" 
+          position="-0.25 -0.05 -1" 
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" 
+          material="shader: flat"
+          visible="false">
+        </a-entity>
+        
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
